@@ -1,4 +1,4 @@
-content = """# 🛡️ FirstWatch
+# 🛡️ FirstWatch
 ### *Sistema Inteligente de Detección Temprana y Monitoreo de Fraude para Neobancos*
 
 > **Detén el fraude dinámico antes de que ocurra el *cash-out*.**  
