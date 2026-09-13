@@ -7,7 +7,7 @@ test('walkthrough: screening, rejection, live risk, escalation and policy',async
   const reset=await request.post('/api/scenarios/sleeper_bustout/reset');
   expect(reset.ok()).toBeTruthy();
   await page.goto('/');
-  await expect(page.getByRole('heading',{name:'Every account has a story.'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Account flow'})).toBeVisible();
   await expect(page.getByText('Curated replay · real models')).toBeVisible();
   await page.getByRole('button',{name:/Curated replay · real models/}).click();
   await expect(page.getByText('3/3 external bundles verified')).toBeVisible();
@@ -38,6 +38,12 @@ test('walkthrough: screening, rejection, live risk, escalation and policy',async
   await page.setViewportSize({width:1366,height:768});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBeTruthy();
   await page.screenshot({path:testInfo.outputPath('desktop-1366.png'),fullPage:true});
+  await page.setViewportSize({width:1007,height:560});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBeTruthy();
+  const columnBottoms=await page.locator('.accounts-panel,.account-detail,.investigation').evaluateAll(elements=>elements.map(element=>Math.round(element.getBoundingClientRect().bottom)));
+  expect(Math.max(...columnBottoms)-Math.min(...columnBottoms)).toBeLessThanOrEqual(1);
+  await expect(page.getByText('Every account has a story.',{exact:true})).toHaveCount(0);
+  await page.screenshot({path:testInfo.outputPath('desktop-1007.png'),fullPage:true});
   await page.setViewportSize({width:390,height:844});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBeTruthy();
   await page.screenshot({path:testInfo.outputPath('mobile.png'),fullPage:true});
