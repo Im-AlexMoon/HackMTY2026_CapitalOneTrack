@@ -1,3 +1,14 @@
+"""
+Evaluacion de sensibilidad (umbral optimo a Recall@5%FPR) para los modelos
+entrenados por EDA/DatasetExploratoryAnalysis.py.
+
+Información de versiones:
+Python 3.12.3
+numpy 2.4.4 | pandas 3.0.2 | scikit-learn 1.8.0 | xgboost 3.4.1
+scipy 1.17.1 | joblib 1.5.3 | matplotlib 3.10.8 | seaborn 0.13.2
+ 
+"""
+
 import os
 import joblib
 import numpy as np
@@ -19,8 +30,8 @@ from sklearn.metrics import (
 # Configuración
 # ------------------------------------------------------------------
 DATA_DIR = "./EDA/data"
-OUT_DIR = "./EDA/data/outputs"
-EVAL_DIR = os.path.join(OUT_DIR, "evaluation")
+OUT_DIR = "./EDA/data/Models_BAF"
+EVAL_DIR = "./Evaluation/evaluation"
 
 TARGET = "fraud_bool"
 TIME_COL = "month"

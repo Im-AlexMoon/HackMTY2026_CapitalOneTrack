@@ -23,6 +23,11 @@ Correcciones sobre la version anterior:
      desbalance severo (~1.1% fraude), y scale_pos_weight ajustado.
   6. Evaluación de modelo con TPR Recall para balancear el error respecto a los 
      falsos positivos
+
+     Información de versiones:
+     Python 3.12.3
+    numpy 2.4.4 | pandas 3.0.2 | scikit-learn 1.8.0 | xgboost 3.4.1
+    scipy 1.17.1 | joblib 1.5.3 | matplotlib 3.10.8 | seaborn 0.13.2
 """
 
 import numpy as np
@@ -45,7 +50,7 @@ from xgboost import XGBClassifier
 # Configuracion
 # ------------------------------------------------------------------
 DATA_DIR = "./EDA/data"
-OUT_DIR = "./EDA/data/outputs"
+OUT_DIR = "./EDA/data/Models_BAF"
 
 file_paths = [
     f"{DATA_DIR}/Base.csv",
