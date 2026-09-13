@@ -1,0 +1,1444 @@
+{
+  "status": "integration_baseline",
+  "origin": "Reviewed delivered artifact plus ported notebook preprocessing; independent Colab parity remains recommended.",
+  "cases": [
+    {
+      "name": "ordinary_history",
+      "input": {
+        "entity_id": "acct_ava",
+        "as_of": "2026-10-16T00:00:00Z",
+        "application": {
+          "income": 0.7,
+          "name_email_similarity": 0.91,
+          "prev_address_months_count": -1,
+          "current_address_months_count": 84,
+          "customer_age": 42,
+          "days_since_request": 0.02,
+          "intended_balcon_amount": 120.0,
+          "payment_type": "AA",
+          "zip_count_4w": 980,
+          "velocity_6h": 2200.0,
+          "velocity_24h": 4100.0,
+          "velocity_4w": 3900.0,
+          "bank_branch_count_8w": 8,
+          "date_of_birth_distinct_emails_4w": 1,
+          "employment_status": "CA",
+          "credit_risk_score": 22,
+          "email_is_free": 0,
+          "housing_status": "BA",
+          "phone_home_valid": 1,
+          "phone_mobile_valid": 1,
+          "bank_months_count": 48,
+          "has_other_cards": 1,
+          "proposed_credit_limit": 500.0,
+          "foreign_request": 0,
+          "source": "INTERNET",
+          "session_length_in_minutes": 6.2,
+          "device_os": "windows",
+          "keep_alive_session": 1,
+          "device_distinct_emails_8w": 1,
+          "device_fraud_count": 0,
+          "x1": 0.45,
+          "x2": -0.32,
+          "identity_mismatch": false,
+          "device_shared_count": 1,
+          "initial_balance": 20000,
+          "synthetic": true,
+          "device_id": "device-acct_ava"
+        },
+        "events": [
+          {
+            "kind": "event",
+            "event_id": "legitimate-001",
+            "account_id": "acct_ava",
+            "event_time": "2026-09-13T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-0",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-0",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7749,
+              "merchant_longitude": -122.4194
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-002",
+            "account_id": "acct_ava",
+            "event_time": "2026-09-16T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-1",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-1",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7759,
+              "merchant_longitude": -122.41839999999999
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-003",
+            "account_id": "acct_ava",
+            "event_time": "2026-09-19T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-2",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-2",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.776900000000005,
+              "merchant_longitude": -122.4174
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-004",
+            "account_id": "acct_ava",
+            "event_time": "2026-09-22T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-3",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-3",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7779,
+              "merchant_longitude": -122.4164
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-005",
+            "account_id": "acct_ava",
+            "event_time": "2026-09-25T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-4",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-4",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7789,
+              "merchant_longitude": -122.41539999999999
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-006",
+            "account_id": "acct_ava",
+            "event_time": "2026-09-28T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-5",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-5",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.779900000000005,
+              "merchant_longitude": -122.4144
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-007",
+            "account_id": "acct_ava",
+            "event_time": "2026-10-01T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-6",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-6",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7809,
+              "merchant_longitude": -122.4134
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-008",
+            "account_id": "acct_ava",
+            "event_time": "2026-10-04T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-7",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-7",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7819,
+              "merchant_longitude": -122.41239999999999
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-009",
+            "account_id": "acct_ava",
+            "event_time": "2026-10-07T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-8",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-8",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.782900000000005,
+              "merchant_longitude": -122.4114
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-010",
+            "account_id": "acct_ava",
+            "event_time": "2026-10-10T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-9",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-9",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7839,
+              "merchant_longitude": -122.4104
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-011",
+            "account_id": "acct_ava",
+            "event_time": "2026-10-13T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-10",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-10",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7849,
+              "merchant_longitude": -122.40939999999999
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "legitimate-012",
+            "account_id": "acct_ava",
+            "event_time": "2026-10-16T00:00:00+00:00",
+            "type": "purchase",
+            "amount": 100,
+            "currency": "USD",
+            "description": "Routine fuel purchase",
+            "counterparty_id": "merchant-gas_station-11",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_ava-main",
+              "device_id": "device-acct_ava-main",
+              "ip_address": "198.51.100.18",
+              "merchant_id": "merchant-gas_station-11",
+              "merchant_category": "gas_station",
+              "merchant_country": "CA",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.785900000000005,
+              "merchant_longitude": -122.4084
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          }
+        ],
+        "context": {
+          "source": "synthetic",
+          "portfolio_events": [
+            {
+              "kind": "event",
+              "event_id": "legitimate-001",
+              "account_id": "acct_ava",
+              "event_time": "2026-09-13T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-0",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-0",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7749,
+                "merchant_longitude": -122.4194
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-002",
+              "account_id": "acct_ava",
+              "event_time": "2026-09-16T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-1",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-1",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7759,
+                "merchant_longitude": -122.41839999999999
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-003",
+              "account_id": "acct_ava",
+              "event_time": "2026-09-19T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-2",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-2",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.776900000000005,
+                "merchant_longitude": -122.4174
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-004",
+              "account_id": "acct_ava",
+              "event_time": "2026-09-22T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-3",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-3",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7779,
+                "merchant_longitude": -122.4164
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-005",
+              "account_id": "acct_ava",
+              "event_time": "2026-09-25T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-4",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-4",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7789,
+                "merchant_longitude": -122.41539999999999
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-006",
+              "account_id": "acct_ava",
+              "event_time": "2026-09-28T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-5",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-5",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.779900000000005,
+                "merchant_longitude": -122.4144
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-007",
+              "account_id": "acct_ava",
+              "event_time": "2026-10-01T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-6",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-6",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7809,
+                "merchant_longitude": -122.4134
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-008",
+              "account_id": "acct_ava",
+              "event_time": "2026-10-04T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-7",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-7",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7819,
+                "merchant_longitude": -122.41239999999999
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-009",
+              "account_id": "acct_ava",
+              "event_time": "2026-10-07T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-8",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-8",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.782900000000005,
+                "merchant_longitude": -122.4114
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-010",
+              "account_id": "acct_ava",
+              "event_time": "2026-10-10T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-9",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-9",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7839,
+                "merchant_longitude": -122.4104
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-011",
+              "account_id": "acct_ava",
+              "event_time": "2026-10-13T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-10",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-10",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7849,
+                "merchant_longitude": -122.40939999999999
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "legitimate-012",
+              "account_id": "acct_ava",
+              "event_time": "2026-10-16T00:00:00+00:00",
+              "type": "purchase",
+              "amount": 100,
+              "currency": "USD",
+              "description": "Routine fuel purchase",
+              "counterparty_id": "merchant-gas_station-11",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_ava-main",
+                "device_id": "device-acct_ava-main",
+                "ip_address": "198.51.100.18",
+                "merchant_id": "merchant-gas_station-11",
+                "merchant_category": "gas_station",
+                "merchant_country": "CA",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.785900000000005,
+                "merchant_longitude": -122.4084
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            }
+          ]
+        }
+      },
+      "atol": 1e-06,
+      "expected": {
+        "risk_score": 0.1458578915085764,
+        "model_vector": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            100.0,
+            0.0,
+            4.0,
+            0.0,
+            259200.0,
+            0.001968443351799521,
+            0.0,
+            1.0,
+            1.0,
+            100.0,
+            100.0,
+            0.9999000099990001,
+            1.0
+          ]
+        ]
+      }
+    },
+    {
+      "name": "sleeper_cashout",
+      "input": {
+        "entity_id": "acct_sleeper",
+        "as_of": "2026-09-12T09:39:00Z",
+        "application": {
+          "income": 0.7,
+          "name_email_similarity": 0.91,
+          "prev_address_months_count": -1,
+          "current_address_months_count": 84,
+          "customer_age": 42,
+          "days_since_request": 0.02,
+          "intended_balcon_amount": 120.0,
+          "payment_type": "AA",
+          "zip_count_4w": 980,
+          "velocity_6h": 2200.0,
+          "velocity_24h": 4100.0,
+          "velocity_4w": 3900.0,
+          "bank_branch_count_8w": 8,
+          "date_of_birth_distinct_emails_4w": 1,
+          "employment_status": "CA",
+          "credit_risk_score": 18,
+          "email_is_free": 0,
+          "housing_status": "BA",
+          "phone_home_valid": 1,
+          "phone_mobile_valid": 1,
+          "bank_months_count": 48,
+          "has_other_cards": 1,
+          "proposed_credit_limit": 500.0,
+          "foreign_request": 0,
+          "source": "INTERNET",
+          "session_length_in_minutes": 6.2,
+          "device_os": "windows",
+          "keep_alive_session": 1,
+          "device_distinct_emails_8w": 1,
+          "device_fraud_count": 0,
+          "x1": 0.45,
+          "x2": -0.32,
+          "identity_mismatch": false,
+          "device_shared_count": 1,
+          "initial_balance": 20000,
+          "synthetic": true,
+          "device_id": "device-acct_sleeper"
+        },
+        "events": [
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-001",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:01:00+00:00",
+            "type": "purchase",
+            "amount": 28,
+            "currency": "USD",
+            "description": "Routine local purchase",
+            "counterparty_id": "merchant-grocery-0",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_sleeper-main",
+              "device_id": "device-acct_sleeper-main",
+              "ip_address": "198.51.100.22",
+              "merchant_id": "merchant-grocery-0",
+              "merchant_category": "grocery",
+              "merchant_country": "US",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7749,
+              "merchant_longitude": -122.4194
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-002",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:08:00+00:00",
+            "type": "purchase",
+            "amount": 34,
+            "currency": "USD",
+            "description": "Routine local purchase",
+            "counterparty_id": "merchant-grocery-1",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_sleeper-main",
+              "device_id": "device-acct_sleeper-main",
+              "ip_address": "198.51.100.22",
+              "merchant_id": "merchant-grocery-1",
+              "merchant_category": "grocery",
+              "merchant_country": "US",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7759,
+              "merchant_longitude": -122.41839999999999
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-003",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:16:00+00:00",
+            "type": "purchase",
+            "amount": 22,
+            "currency": "USD",
+            "description": "Routine local purchase",
+            "counterparty_id": "merchant-grocery-2",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_sleeper-main",
+              "device_id": "device-acct_sleeper-main",
+              "ip_address": "198.51.100.22",
+              "merchant_id": "merchant-grocery-2",
+              "merchant_category": "grocery",
+              "merchant_country": "US",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.776900000000005,
+              "merchant_longitude": -122.4174
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-004",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:24:00+00:00",
+            "type": "purchase",
+            "amount": 41,
+            "currency": "USD",
+            "description": "Routine local purchase",
+            "counterparty_id": "merchant-grocery-3",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "purchase",
+              "card_id": "card-acct_sleeper-main",
+              "device_id": "device-acct_sleeper-main",
+              "ip_address": "198.51.100.22",
+              "merchant_id": "merchant-grocery-3",
+              "merchant_category": "grocery",
+              "merchant_country": "US",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7779,
+              "merchant_longitude": -122.4164
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-006",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:32:00+00:00",
+            "type": "deposit",
+            "amount": 1200,
+            "currency": "USD",
+            "description": "Incoming transfer",
+            "counterparty_id": "merchant-grocery-0",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "transfer",
+              "card_id": "card-acct_sleeper-main",
+              "device_id": "device-acct_sleeper-main",
+              "ip_address": "198.51.100.22",
+              "merchant_id": "merchant-grocery-0",
+              "merchant_category": "grocery",
+              "merchant_country": "US",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7789,
+              "merchant_longitude": -122.41539999999999
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-007",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:33:00+00:00",
+            "type": "transfer",
+            "amount": 900,
+            "currency": "USD",
+            "description": "Rapid outbound transfer",
+            "counterparty_id": "merchant-transfer-1",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "transfer",
+              "card_id": "card-acct_sleeper-main",
+              "device_id": "device-acct_sleeper-main",
+              "ip_address": "198.51.100.22",
+              "merchant_id": "merchant-transfer-1",
+              "merchant_category": "transfer",
+              "merchant_country": "BR",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": -23.5505,
+              "merchant_longitude": -46.6333
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-008",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:34:00+00:00",
+            "type": "transfer",
+            "amount": 1350,
+            "currency": "USD",
+            "description": "Rapid outbound transfer",
+            "counterparty_id": "merchant-transfer-2",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "transfer",
+              "card_id": "card-acct_sleeper-new",
+              "device_id": "device-acct_sleeper-new",
+              "ip_address": "203.0.113.90",
+              "merchant_id": "merchant-transfer-2",
+              "merchant_category": "transfer",
+              "merchant_country": "US",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7809,
+              "merchant_longitude": -122.4134
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-009",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:35:00+00:00",
+            "type": "transfer",
+            "amount": 1800,
+            "currency": "USD",
+            "description": "Rapid outbound transfer",
+            "counterparty_id": "merchant-transfer-3",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "transfer",
+              "card_id": "card-acct_sleeper-new",
+              "device_id": "device-acct_sleeper-new",
+              "ip_address": "203.0.113.90",
+              "merchant_id": "merchant-transfer-3",
+              "merchant_category": "transfer",
+              "merchant_country": "BR",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": -23.5505,
+              "merchant_longitude": -46.6333
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-010",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:36:00+00:00",
+            "type": "transfer",
+            "amount": 2300,
+            "currency": "USD",
+            "description": "Rapid outbound transfer",
+            "counterparty_id": "merchant-transfer-0",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "transfer",
+              "card_id": "card-acct_sleeper-new",
+              "device_id": "device-acct_sleeper-new",
+              "ip_address": "203.0.113.90",
+              "merchant_id": "merchant-transfer-0",
+              "merchant_category": "transfer",
+              "merchant_country": "US",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.782900000000005,
+              "merchant_longitude": -122.4114
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-011",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:37:00+00:00",
+            "type": "transfer",
+            "amount": 2900,
+            "currency": "USD",
+            "description": "Rapid outbound transfer",
+            "counterparty_id": "merchant-transfer-1",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "transfer",
+              "card_id": "card-acct_sleeper-new",
+              "device_id": "device-acct_sleeper-new",
+              "ip_address": "203.0.113.90",
+              "merchant_id": "merchant-transfer-1",
+              "merchant_category": "transfer",
+              "merchant_country": "BR",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": -23.5505,
+              "merchant_longitude": -46.6333
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          },
+          {
+            "kind": "event",
+            "event_id": "sleeper_bustout-013",
+            "account_id": "acct_sleeper",
+            "event_time": "2026-09-12T09:39:00+00:00",
+            "type": "cash_out",
+            "amount": 4500,
+            "currency": "USD",
+            "description": "Final cash-out attempt",
+            "counterparty_id": "merchant-transfer-2",
+            "raw_payload": {
+              "synthetic": true,
+              "transaction_type": "transfer",
+              "card_id": "card-acct_sleeper-new",
+              "device_id": "device-acct_sleeper-new",
+              "ip_address": "203.0.113.90",
+              "merchant_id": "merchant-transfer-2",
+              "merchant_category": "transfer",
+              "merchant_country": "US",
+              "merchant_city": "Taylorberg",
+              "merchant_latitude": 37.7849,
+              "merchant_longitude": -122.40939999999999
+            },
+            "labels": {
+              "source": "synthetic"
+            }
+          }
+        ],
+        "context": {
+          "source": "synthetic",
+          "portfolio_events": [
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-001",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:01:00+00:00",
+              "type": "purchase",
+              "amount": 28,
+              "currency": "USD",
+              "description": "Routine local purchase",
+              "counterparty_id": "merchant-grocery-0",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_sleeper-main",
+                "device_id": "device-acct_sleeper-main",
+                "ip_address": "198.51.100.22",
+                "merchant_id": "merchant-grocery-0",
+                "merchant_category": "grocery",
+                "merchant_country": "US",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7749,
+                "merchant_longitude": -122.4194
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-002",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:08:00+00:00",
+              "type": "purchase",
+              "amount": 34,
+              "currency": "USD",
+              "description": "Routine local purchase",
+              "counterparty_id": "merchant-grocery-1",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_sleeper-main",
+                "device_id": "device-acct_sleeper-main",
+                "ip_address": "198.51.100.22",
+                "merchant_id": "merchant-grocery-1",
+                "merchant_category": "grocery",
+                "merchant_country": "US",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7759,
+                "merchant_longitude": -122.41839999999999
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-003",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:16:00+00:00",
+              "type": "purchase",
+              "amount": 22,
+              "currency": "USD",
+              "description": "Routine local purchase",
+              "counterparty_id": "merchant-grocery-2",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_sleeper-main",
+                "device_id": "device-acct_sleeper-main",
+                "ip_address": "198.51.100.22",
+                "merchant_id": "merchant-grocery-2",
+                "merchant_category": "grocery",
+                "merchant_country": "US",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.776900000000005,
+                "merchant_longitude": -122.4174
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-004",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:24:00+00:00",
+              "type": "purchase",
+              "amount": 41,
+              "currency": "USD",
+              "description": "Routine local purchase",
+              "counterparty_id": "merchant-grocery-3",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "purchase",
+                "card_id": "card-acct_sleeper-main",
+                "device_id": "device-acct_sleeper-main",
+                "ip_address": "198.51.100.22",
+                "merchant_id": "merchant-grocery-3",
+                "merchant_category": "grocery",
+                "merchant_country": "US",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7779,
+                "merchant_longitude": -122.4164
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-006",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:32:00+00:00",
+              "type": "deposit",
+              "amount": 1200,
+              "currency": "USD",
+              "description": "Incoming transfer",
+              "counterparty_id": "merchant-grocery-0",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "transfer",
+                "card_id": "card-acct_sleeper-main",
+                "device_id": "device-acct_sleeper-main",
+                "ip_address": "198.51.100.22",
+                "merchant_id": "merchant-grocery-0",
+                "merchant_category": "grocery",
+                "merchant_country": "US",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7789,
+                "merchant_longitude": -122.41539999999999
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-007",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:33:00+00:00",
+              "type": "transfer",
+              "amount": 900,
+              "currency": "USD",
+              "description": "Rapid outbound transfer",
+              "counterparty_id": "merchant-transfer-1",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "transfer",
+                "card_id": "card-acct_sleeper-main",
+                "device_id": "device-acct_sleeper-main",
+                "ip_address": "198.51.100.22",
+                "merchant_id": "merchant-transfer-1",
+                "merchant_category": "transfer",
+                "merchant_country": "BR",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": -23.5505,
+                "merchant_longitude": -46.6333
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-008",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:34:00+00:00",
+              "type": "transfer",
+              "amount": 1350,
+              "currency": "USD",
+              "description": "Rapid outbound transfer",
+              "counterparty_id": "merchant-transfer-2",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "transfer",
+                "card_id": "card-acct_sleeper-new",
+                "device_id": "device-acct_sleeper-new",
+                "ip_address": "203.0.113.90",
+                "merchant_id": "merchant-transfer-2",
+                "merchant_category": "transfer",
+                "merchant_country": "US",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7809,
+                "merchant_longitude": -122.4134
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-009",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:35:00+00:00",
+              "type": "transfer",
+              "amount": 1800,
+              "currency": "USD",
+              "description": "Rapid outbound transfer",
+              "counterparty_id": "merchant-transfer-3",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "transfer",
+                "card_id": "card-acct_sleeper-new",
+                "device_id": "device-acct_sleeper-new",
+                "ip_address": "203.0.113.90",
+                "merchant_id": "merchant-transfer-3",
+                "merchant_category": "transfer",
+                "merchant_country": "BR",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": -23.5505,
+                "merchant_longitude": -46.6333
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-010",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:36:00+00:00",
+              "type": "transfer",
+              "amount": 2300,
+              "currency": "USD",
+              "description": "Rapid outbound transfer",
+              "counterparty_id": "merchant-transfer-0",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "transfer",
+                "card_id": "card-acct_sleeper-new",
+                "device_id": "device-acct_sleeper-new",
+                "ip_address": "203.0.113.90",
+                "merchant_id": "merchant-transfer-0",
+                "merchant_category": "transfer",
+                "merchant_country": "US",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.782900000000005,
+                "merchant_longitude": -122.4114
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-011",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:37:00+00:00",
+              "type": "transfer",
+              "amount": 2900,
+              "currency": "USD",
+              "description": "Rapid outbound transfer",
+              "counterparty_id": "merchant-transfer-1",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "transfer",
+                "card_id": "card-acct_sleeper-new",
+                "device_id": "device-acct_sleeper-new",
+                "ip_address": "203.0.113.90",
+                "merchant_id": "merchant-transfer-1",
+                "merchant_category": "transfer",
+                "merchant_country": "BR",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": -23.5505,
+                "merchant_longitude": -46.6333
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            },
+            {
+              "kind": "event",
+              "event_id": "sleeper_bustout-013",
+              "account_id": "acct_sleeper",
+              "event_time": "2026-09-12T09:39:00+00:00",
+              "type": "cash_out",
+              "amount": 4500,
+              "currency": "USD",
+              "description": "Final cash-out attempt",
+              "counterparty_id": "merchant-transfer-2",
+              "raw_payload": {
+                "synthetic": true,
+                "transaction_type": "transfer",
+                "card_id": "card-acct_sleeper-new",
+                "device_id": "device-acct_sleeper-new",
+                "ip_address": "203.0.113.90",
+                "merchant_id": "merchant-transfer-2",
+                "merchant_category": "transfer",
+                "merchant_country": "US",
+                "merchant_city": "Taylorberg",
+                "merchant_latitude": 37.7849,
+                "merchant_longitude": -122.40939999999999
+              },
+              "labels": {
+                "source": "synthetic"
+              }
+            }
+          ]
+        }
+      },
+      "atol": 1e-06,
+      "expected": {
+        "risk_score": 0.18924133177541355,
+        "model_vector": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            4500.0,
+            9.0,
+            5.0,
+            0.0,
+            120.0,
+            310415.08773385256,
+            0.0,
+            11.0,
+            11.0,
+            15075.0,
+            15075.0,
+            4.255278909892105,
+            5.0
+          ]
+        ]
+      }
+    }
+  ]
+}

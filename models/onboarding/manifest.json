@@ -1,0 +1,28 @@
+{
+  "model": "onboarding",
+  "status": "ready",
+  "model_version": "baf-temporal-sep-xgb-v1",
+  "preprocessing_version": "baf-sentinel-ohe-rfecv-v1",
+  "dataset": "Bank Account Fraud Dataset Suite - Variant III (separate distributions)",
+  "dataset_provenance": {
+    "version": "BAF Variant III repository snapshot",
+    "source_url": "https://github.com/feedzai/bank-account-fraud",
+    "files": [{"name": "Variant III.csv", "sha256": "64693e549cbb68b497f126a6e5edb38e3e84014b7015cda19fb9e1d44d60370f"}],
+    "split_reference": "Train months 0-5; evaluation months 6-7; month excluded from model features."
+  },
+  "target": "fraud_bool",
+  "artifact_format": "joblib",
+  "input_format": "dataframe",
+  "preprocessing_mode": "bundle_transformer",
+  "environment": {
+    "python": "3.12.3",
+    "libraries": {"numpy":"2.4.4","pandas":"3.0.2","scikit-learn":"1.9.0","xgboost":"3.4.1","joblib":"1.5.3"}
+  },
+  "artifacts": [{"path":"artifact/model.joblib","sha256":"7a90453459abb71639ec94a57ac183e1099182db63e91bbb7fb095f296b0e607","role":"model"}],
+  "output": {
+    "method":"predict_proba","positive_class":1,"normalization":{"kind":"identity"},"higher_is_risk":true,
+    "suggested_threshold":0.28689560294151306,
+    "threshold_basis":"Approximately 5% FPR on temporal evaluation months 6-7."
+  },
+  "handoff_note":"Serialized preprocessor reports scikit-learn 1.9.0; this takes precedence over the 1.8.0 comment in the training script."
+}

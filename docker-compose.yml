@@ -1,0 +1,80 @@
+name: firstwatch
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: firstwatch
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-firstwatch_local_demo}
+      POSTGRES_DB: firstwatch
+    volumes:
+      - firstwatch-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U firstwatch -d firstwatch"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+  onboarding:
+    build:
+      context: .
+      dockerfile: models/onboarding/Dockerfile
+    environment:
+      DEMO_MODE: ${MODEL_DEMO_MODE:-false}
+      ALLOW_TRUSTED_ARTIFACTS: ${ALLOW_TRUSTED_ARTIFACTS:-true}
+    volumes:
+      - ./models/onboarding:/app/models/onboarding:ro
+    ports: ["127.0.0.1:8101:8000"]
+  transaction:
+    build:
+      context: .
+      dockerfile: models/transaction/Dockerfile
+    environment:
+      DEMO_MODE: ${MODEL_DEMO_MODE:-false}
+      ALLOW_TRUSTED_ARTIFACTS: ${ALLOW_TRUSTED_ARTIFACTS:-true}
+    volumes:
+      - ./models/transaction:/app/models/transaction:ro
+    ports: ["127.0.0.1:8102:8000"]
+  sequence:
+    build:
+      context: .
+      dockerfile: models/sequence/Dockerfile
+    environment:
+      DEMO_MODE: ${MODEL_DEMO_MODE:-false}
+      ALLOW_TRUSTED_ARTIFACTS: ${ALLOW_TRUSTED_ARTIFACTS:-true}
+    volumes:
+      - ./models/sequence:/app/models/sequence:ro
+    ports: ["127.0.0.1:8103:8000"]
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    command: ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 1"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://firstwatch:${POSTGRES_PASSWORD:-firstwatch_local_demo}@db:5432/firstwatch
+      DEMO_MODE: ${API_DEMO_MODE:-true}
+      CONFIG_DIR: /app/configs
+      ONBOARDING_RUNNER_URL: http://onboarding:8000
+      TRANSACTION_RUNNER_URL: http://transaction:8000
+      SEQUENCE_RUNNER_URL: http://sequence:8000
+    volumes:
+      - ./configs:/app/configs:ro
+    ports: ["127.0.0.1:${API_PORT:-8000}:8000"]
+    depends_on:
+      db: {condition: service_healthy}
+      onboarding: {condition: service_started}
+      transaction: {condition: service_started}
+      sequence: {condition: service_started}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+  web:
+    build:
+      context: apps/web
+      args:
+        API_INTERNAL_URL: http://api:8000
+    ports: ["127.0.0.1:${WEB_PORT:-3000}:3000"]
+    depends_on:
+      api: {condition: service_healthy}
+volumes:
+  firstwatch-data:

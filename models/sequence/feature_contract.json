@@ -1,0 +1,25 @@
+{
+  "status":"ready","input_layout":"sequence",
+  "feature_order":["has_previous_tx","log_delta_hours","hour_sin","hour_cos","dow_sin","dow_cos","is_new_device","is_new_ip","is_new_card","is_new_merchant","transaction_type_transfer","log_amount","merchant_category_electronics","merchant_category_entertainment","merchant_category_fashion","merchant_category_gas_station","merchant_category_grocery","merchant_category_online_marketplace","merchant_category_pharmacy","merchant_category_restaurants","merchant_category_transfer","merchant_category_travel","merchant_category_utilities","merchant_country_AU","merchant_country_BR","merchant_country_CA","merchant_country_DE","merchant_country_ES","merchant_country_FR","merchant_country_GB","merchant_country_IN","merchant_country_IT","merchant_country_US"],
+  "features":[
+    {"name":"has_previous_tx","dtype":"integer","nullable":false},{"name":"log_delta_hours","dtype":"number","nullable":false},
+    {"name":"hour_sin","dtype":"number","nullable":false},{"name":"hour_cos","dtype":"number","nullable":false},
+    {"name":"dow_sin","dtype":"number","nullable":false},{"name":"dow_cos","dtype":"number","nullable":false},
+    {"name":"is_new_device","dtype":"integer","nullable":false},{"name":"is_new_ip","dtype":"integer","nullable":false},
+    {"name":"is_new_card","dtype":"integer","nullable":false},{"name":"is_new_merchant","dtype":"integer","nullable":false},
+    {"name":"transaction_type_transfer","dtype":"integer","nullable":false},{"name":"log_amount","dtype":"number","nullable":false},
+    {"name":"merchant_category_electronics","dtype":"integer","nullable":false},{"name":"merchant_category_entertainment","dtype":"integer","nullable":false},
+    {"name":"merchant_category_fashion","dtype":"integer","nullable":false},{"name":"merchant_category_gas_station","dtype":"integer","nullable":false},
+    {"name":"merchant_category_grocery","dtype":"integer","nullable":false},{"name":"merchant_category_online_marketplace","dtype":"integer","nullable":false},
+    {"name":"merchant_category_pharmacy","dtype":"integer","nullable":false},{"name":"merchant_category_restaurants","dtype":"integer","nullable":false},
+    {"name":"merchant_category_transfer","dtype":"integer","nullable":false},{"name":"merchant_category_travel","dtype":"integer","nullable":false},
+    {"name":"merchant_category_utilities","dtype":"integer","nullable":false},{"name":"merchant_country_AU","dtype":"integer","nullable":false},
+    {"name":"merchant_country_BR","dtype":"integer","nullable":false},{"name":"merchant_country_CA","dtype":"integer","nullable":false},
+    {"name":"merchant_country_DE","dtype":"integer","nullable":false},{"name":"merchant_country_ES","dtype":"integer","nullable":false},
+    {"name":"merchant_country_FR","dtype":"integer","nullable":false},{"name":"merchant_country_GB","dtype":"integer","nullable":false},
+    {"name":"merchant_country_IN","dtype":"integer","nullable":false},{"name":"merchant_country_IT","dtype":"integer","nullable":false},
+    {"name":"merchant_country_US","dtype":"integer","nullable":false}
+  ],
+  "model_feature_order":["has_previous_tx","log_delta_hours","hour_sin","hour_cos","dow_sin","dow_cos","is_new_device","is_new_ip","is_new_card","is_new_merchant","transaction_type_transfer","log_amount","merchant_category_electronics","merchant_category_entertainment","merchant_category_fashion","merchant_category_gas_station","merchant_category_grocery","merchant_category_online_marketplace","merchant_category_pharmacy","merchant_category_restaurants","merchant_category_transfer","merchant_category_travel","merchant_category_utilities","merchant_country_AU","merchant_country_BR","merchant_country_CA","merchant_country_DE","merchant_country_ES","merchant_country_FR","merchant_country_GB","merchant_country_IN","merchant_country_IT","merchant_country_US"],
+  "sequence":{"length":10,"min_history":10,"padding":"none"}
+}

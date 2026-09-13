@@ -1,0 +1,19 @@
+{
+  "status":"ready","input_layout":"tabular",
+  "feature_order":["merchant_category","merchant_country","merchant_city","transaction_type","amount","hour_of_day","day_of_week","is_night_time","time_since_last_tx","geovelocity_kmh","is_new_device","tx_count_1h","tx_count_24h","tx_amount_1h","tx_amount_24h","amount_to_avg_ratio","device_tx_count_24h"],
+  "features":[
+    {"name":"merchant_category","dtype":"string","nullable":false,"categories":["electronics","entertainment","fashion","gas_station","grocery","online_marketplace","pharmacy","restaurants","travel","utilities"],"unknown_category":"allow"},
+    {"name":"merchant_country","dtype":"string","nullable":false,"categories":["AU","BR","CA","DE","ES","FR","GB","IN","IT","US"],"unknown_category":"allow"},
+    {"name":"merchant_city","dtype":"string","nullable":false,"unknown_category":"allow","categories":[]},
+    {"name":"transaction_type","dtype":"string","nullable":false,"categories":["purchase","transfer"],"unknown_category":"allow"},
+    {"name":"amount","dtype":"number","nullable":false},{"name":"hour_of_day","dtype":"integer","nullable":false},
+    {"name":"day_of_week","dtype":"integer","nullable":false},{"name":"is_night_time","dtype":"integer","nullable":false},
+    {"name":"time_since_last_tx","dtype":"number","nullable":false},{"name":"geovelocity_kmh","dtype":"number","nullable":false},
+    {"name":"is_new_device","dtype":"integer","nullable":false},{"name":"tx_count_1h","dtype":"number","nullable":false},
+    {"name":"tx_count_24h","dtype":"number","nullable":false},{"name":"tx_amount_1h","dtype":"number","nullable":false},
+    {"name":"tx_amount_24h","dtype":"number","nullable":false},{"name":"amount_to_avg_ratio","dtype":"number","nullable":false},
+    {"name":"device_tx_count_24h","dtype":"number","nullable":false}
+  ],
+  "model_feature_order":["cat__merchant_category_electronics","cat__merchant_category_entertainment","cat__merchant_category_fashion","cat__merchant_category_gas_station","cat__merchant_category_grocery","cat__merchant_category_online_marketplace","cat__merchant_category_pharmacy","cat__merchant_category_restaurants","cat__merchant_category_travel","cat__merchant_category_utilities","cat__merchant_category_infrequent_sklearn","cat__merchant_country_AU","cat__merchant_country_BR","cat__merchant_country_CA","cat__merchant_country_DE","cat__merchant_country_ES","cat__merchant_country_FR","cat__merchant_country_GB","cat__merchant_country_IN","cat__merchant_country_IT","cat__merchant_country_US","cat__merchant_city_infrequent_sklearn","cat__transaction_type_purchase","cat__transaction_type_infrequent_sklearn","num__amount","num__hour_of_day","num__day_of_week","num__is_night_time","num__time_since_last_tx","num__geovelocity_kmh","num__is_new_device","num__tx_count_1h","num__tx_count_24h","num__tx_amount_1h","num__tx_amount_24h","num__amount_to_avg_ratio","num__device_tx_count_24h"],
+  "sequence":{}
+}

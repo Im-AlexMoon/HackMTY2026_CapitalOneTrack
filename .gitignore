@@ -216,3 +216,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local agent guidance (never stage or publish).
+/AGENTS.md
+/DESIGN.md
+# Application builds, runtime state, and external artifacts.
+node_modules/
+.next/
+*.tsbuildinfo
+*.db
+*.db-shm
+*.db-wal
+.runtime/
+pytest-cache-files-*/
+.test-*/
+data/raw/
+data/curated/
+EDA/data/outputs/
+models/*/artifact/*
+!models/*/artifact/.gitkeep
+models/*/verification.json
+test-results/
+playwright-report/
+!apps/web/lib/
+!apps/web/lib/**

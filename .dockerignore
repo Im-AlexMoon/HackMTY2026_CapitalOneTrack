@@ -1,0 +1,14 @@
+.git
+.venv
+**/node_modules
+**/.next
+**/__pycache__
+**/*.db
+**/*.tsbuildinfo
+EDA/data
+data/raw
+data/curated
+.runtime
+.env
+AGENTS.md
+DESIGN.md

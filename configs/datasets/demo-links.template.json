@@ -1,0 +1,11 @@
+{
+  "links": [
+    {
+      "application_record_id": "replace-with-baf-candidate-id",
+      "transaction_account_id": "replace-with-transaction-customer-or-account-id",
+      "demo_account_id": "demo-account-001",
+      "alias": "Demo applicant",
+      "initial_balance": 10000
+    }
+  ]
+}

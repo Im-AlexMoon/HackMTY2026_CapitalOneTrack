@@ -1,0 +1,10 @@
+{
+  "dataset_name": "Bank Account Fraud Dataset Suite (BAF)",
+  "local_files": "EDA/data/*.csv",
+  "source_url": "https://www.kaggle.com/datasets/sgpjesus/bank-account-fraud-dataset-neurips-2022",
+  "identity_key": null,
+  "timestamp_field": "month",
+  "label_columns": ["fraud_bool"],
+  "status": "available_locally_split_not_verified",
+  "warning": "The existing EDA uses a random split. Confirm notebook split membership before calling any row holdout."
+}

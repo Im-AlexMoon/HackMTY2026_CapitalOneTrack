@@ -1,0 +1,21 @@
+{
+  "status": "draft_requires_actual_csv_headers",
+  "dataset_name": "Synthetic Banking Transaction Dataset with Multi-Pattern Fraud Labels for Machine Learning Research",
+  "dataset_version": "confirm exact Kaggle mirror or DOI version",
+  "source_url": "https://data.mendeley.com/datasets/ktbthg777x/2",
+  "columns": {
+    "event_id": null,
+    "account_id": null,
+    "event_time": null,
+    "type": null,
+    "amount": null,
+    "currency": null,
+    "counterparty_id": null,
+    "description": null
+  },
+  "currency": null,
+  "time_format": null,
+  "type_map": {},
+  "label_columns": [],
+  "warning": "Generate a draft from the exact CSV with init_transaction_mapping.py, then verify it against the training notebook."
+}

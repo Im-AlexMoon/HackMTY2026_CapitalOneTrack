@@ -1,0 +1,24 @@
+{
+  "model":"sequence","status":"ready","model_version":"lstm-autoencoder-v1","preprocessing_version":"sequence-causal-dummies-v1",
+  "dataset":"Synthetic Banking Transaction Dataset with Multi-Pattern Fraud Labels for Machine Learning Research",
+  "dataset_provenance":{
+    "version":"Mendeley Data version 2; training script input named Fraud Detection Dataset.csv",
+    "source_url":"https://data.mendeley.com/datasets/ktbthg777x/2",
+    "files":[{"name":"Fraud Detection Dataset.csv","sha256":"","not_available_reason":"The one-million-row training CSV was not committed; provenance is recorded by the training script."}],
+    "split_reference":"Script slices the customer/time-sorted feature frame 70% train, 15% validation and 15% test; only normal training windows fit the autoencoder."
+  },
+  "target":"is_fraud","artifact_format":"keras","input_format":"numpy","preprocessing_mode":"none",
+  "environment":{
+    "python":"3.12.6",
+    "libraries":{"numpy":"2.2.6","pandas":"2.2.3","keras":"3.13.2","tensorflow-cpu":"2.21.0","joblib":"1.6.0"}
+  },
+  "artifacts":[
+    {"path":"artifact/model.keras","sha256":"392b6396b970cc6a63e1e97f7741aef258f2d56c3a61e87849509b12420751f2","role":"model"},
+    {"path":"artifact/reference.joblib","sha256":"40430abba077197abc8015d33afcc78103b47b91b8e53eabd22851257ba3a045","role":"reference","format":"joblib"}
+  ],
+  "output":{
+    "method":"reconstruction_mse","normalization":{"kind":"ecdf","reference_artifact":"reference","reference_key":"reference_errors"},
+    "higher_is_risk":true,"suggested_threshold":0.99,"threshold_basis":"99th percentile of normal validation reconstruction errors; tune to the bank's review capacity."
+  },
+  "handoff_note":"The .keras metadata records Keras 3.13.2 and input shape (10, 33). TensorFlow runtime is pinned for serving compatibility; the training TensorFlow version was not exported."
+}
