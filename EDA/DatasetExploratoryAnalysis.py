@@ -123,8 +123,8 @@ PARAM_DIST = {
     "min_child_weight": randint(1, 20),     # enteros discretos entre 1 y 19
 }
 N_ITER_SELECTOR_SEARCH = 8
-N_ITER_FINAL_SEARCH = 35
-FINAL_TUNE_SAMPLE_SIZE = 200_000
+N_ITER_FINAL_SEARCH = 30
+FINAL_TUNE_SAMPLE_SIZE = 150_000
 
 
 def tune_estimator_hyperparams(X, y, scoring, n_iter, base_kwargs=None, cv_splits=3):
@@ -311,16 +311,18 @@ def run_pipeline(df_train, df_test, tag, split_name):
     completo por cada split -- cada uno tiene su propio df_train, asi que
     no se puede reusar seleccion de features ni hiperparametros entre ambos.
     """
-    selector, preprocessor, feature_cols, all_names, selected = run_rfecv(df_train, f"{tag}_{split_name}")
+    selector, preprocessor, feature_cols, _, selected = run_rfecv(df_train, f"{tag}_{split_name}")
     clf, y_pred, roc, recall, precision, recall_5fpr = train_and_evaluate(
         df_train, df_test, feature_cols, preprocessor, selector
     )
- 
+    y_probas = clf.predict_proba
+
     model_bundle = {
         "preprocessor": preprocessor,
         "selector": selector,
         "model": clf,
         "feature_cols": feature_cols,
+        "Probability grader": y_probas,
     }
     bundle_path = os.path.join(OUT_DIR, f"model_bundle_{split_name}_{tag}.joblib")
     joblib.dump(model_bundle, bundle_path)
