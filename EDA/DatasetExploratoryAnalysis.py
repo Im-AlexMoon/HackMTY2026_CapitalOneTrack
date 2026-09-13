@@ -27,6 +27,7 @@ Correcciones sobre la version anterior:
 
 import numpy as np
 import joblib
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -73,6 +74,22 @@ CATEGORICAL_COLS = [
 ]
 
 TARGET = "fraud_bool"
+MONTH_COL = "month"
+
+# Split temporal en vez de aleatorio: entrena con los primeros 6 meses,
+# evalua con los ultimos 2 -- asi es como se disena el benchmark original de
+# BAF (simula produccion real, donde el futuro nunca esta en tu training set).
+# Verificado empiricamente en Base.csv: meses 0-5 = 79.5% de las filas,
+# meses 6-7 = 20.5%. Ademas, la prevalencia de fraude sube de 1.13% (mes 0)
+# a 1.47% (mes 7) -- hay drift real, no es un supuesto teorico.
+TRAIN_MONTHS = (0, 1, 2, 3, 4, 5)
+TEST_MONTHS = (6, 7)
+ 
+ 
+def temporal_split(df, train_months=TRAIN_MONTHS, test_months=TEST_MONTHS):
+    df_train = df[df[MONTH_COL].isin(train_months)].reset_index(drop=True)
+    df_test = df[df[MONTH_COL].isin(test_months)].reset_index(drop=True)
+    return df_train, df_test
 
 TARGET_FPR = 0.05
 
@@ -89,7 +106,7 @@ recall_at_fpr_scorer = make_scorer(
     recall_at_fpr, response_method="predict_proba", max_fpr=TARGET_FPR
 )
 
-RFECV_SAMPLE_SIZE = 350_000
+RFECV_SAMPLE_SIZE = 100_000
 RFECV_CV_SPLITS = 3
 RFECV_STEP = 1
 
@@ -101,8 +118,8 @@ PARAM_DIST = {
     "min_child_weight": randint(1, 20),     # enteros discretos entre 1 y 19
 }
 N_ITER_SELECTOR_SEARCH = 8
-N_ITER_FINAL_SEARCH = 50
-FINAL_TUNE_SAMPLE_SIZE = 300_000
+N_ITER_FINAL_SEARCH = 35
+FINAL_TUNE_SAMPLE_SIZE = 200_000
 
 
 def tune_estimator_hyperparams(X, y, scoring, n_iter, base_kwargs=None, cv_splits=3):
@@ -282,41 +299,76 @@ def train_and_evaluate(df_train, df_test, feature_cols, preprocessor, selector):
     return clasificador, y_pred, roc, recall, precision, recall_5fpr
 
 
+def run_pipeline(df_train, df_test, tag, split_name):
+    """
+    Corre RFECV + tuning + evaluacion completos para UN split ya armado
+    (aleatorio o temporal) y guarda su propio bundle. Esto SI debe correr
+    completo por cada split -- cada uno tiene su propio df_train, asi que
+    no se puede reusar seleccion de features ni hiperparametros entre ambos.
+    """
+    selector, preprocessor, feature_cols, all_names, selected = run_rfecv(df_train, f"{tag}_{split_name}")
+    clf, y_pred, roc, recall, precision, recall_5fpr = train_and_evaluate(
+        df_train, df_test, feature_cols, preprocessor, selector
+    )
+ 
+    model_bundle = {
+        "preprocessor": preprocessor,
+        "selector": selector,
+        "model": clf,
+        "feature_cols": feature_cols,
+    }
+    bundle_path = os.path.join(OUT_DIR, f"model_bundle_{split_name}_{tag}.joblib")
+    joblib.dump(model_bundle, bundle_path)
+    print(f"[{tag} - {split_name}] Modelo guardado en: {bundle_path}")
+    print(f"[{tag} - {split_name}] ROC-AUC={roc:.4f}  Recall={recall:.4f}  Precision={precision:.4f}  Recall@5%FPR={recall_5fpr:.4f}")
+ 
+    return {
+        "n_features": len(selected), "roc_auc": roc, "recall": recall,
+        "precision": precision, "recall_at_5pct_fpr": recall_5fpr,
+    }
+ 
+ 
 if __name__ == "__main__":
-    import os
     os.makedirs(OUT_DIR, exist_ok=True)
-
+ 
     results = {}
     for path, tag in zip(file_paths, names):
+        # Cargar y hacer EDA UNA sola vez -- no depende del split, asi que
+        # repetirlo por cada split es I/O y computo tirado a la basura.
         df = load_and_clean(path)
         run_eda(df, tag)
 
-        df_train, df_test = train_test_split(
-            df, test_size=0.2, stratify=df[TARGET], random_state=42
+
+        df_train_og, df_test_og = train_test_split(df, test_size=0.2, stratify=df[TARGET], random_state=42)
+        results[(tag,"Random_w_time")] = run_pipeline(df_train_og, df_test_og, tag, "Random_w_time")
+        # 'month' se excluye como feature en AMBOS splits, no solo el
+        # temporal. Si se deja en el split aleatorio, ese modelo tiene
+        # acceso a una columna que el temporal nunca ve -- y sabemos que
+        # correlaciona con la prevalencia de fraude (1.13% mes 0 -> 1.47%
+        # mes 7), asi que cualquier diferencia en desempeño quedaria
+        # contaminada por la diferencia de features, no solo por el split.
+        df_sin_month = df.drop(columns=[MONTH_COL])
+ 
+        # --- Split aleatorio ---
+        df_train_rnd, df_test_rnd = train_test_split(
+            df_sin_month, test_size=0.2, stratify=df_sin_month[TARGET], random_state=42
         )
+        results[(tag, "random")] = run_pipeline(df_train_rnd, df_test_rnd, tag, "random")
+ 
+        # --- Split temporal ---
+        df_train_tmp, df_test_tmp = temporal_split(df)
+        df_train_tmp = df_train_tmp.drop(columns=[MONTH_COL])
+        df_test_tmp = df_test_tmp.drop(columns=[MONTH_COL])
+        results[(tag, "temporal")] = run_pipeline(df_train_tmp, df_test_tmp, tag, "temporal")
+ 
+    print("\n=== Resumen comparativo (aleatorio vs temporal) ===")
+    header = f"{'variante':<18}{'split':<10}{'n_feat':<8}{'ROC-AUC':<10}{'Recall':<10}{'Precision':<11}{'Recall@5%FPR':<14}"
+    print(header)
+    for tag in names:
+        for split_name in ("random", "temporal", "Random_w_time"):
+            r = results[(tag, split_name)]
+            print(f"{tag:<18}{split_name:<10}{r['n_features']:<8}{r['roc_auc']:<10.4f}{r['recall']:<10.4f}{r['precision']:<11.4f}{r['recall_at_5pct_fpr']:<14.4f}")
 
-        selector, preprocessor, feature_cols, all_names, selected = run_rfecv(df_train, tag)
-        clf, y_pred, roc, recall, precision, recall_5fpr = train_and_evaluate(
-            df_train, df_test, feature_cols, preprocessor, selector
-        )
-
-        model_bundle = {
-            "preprocessor": preprocessor,
-            "selector": selector,
-            "model": clf,
-            "feature_cols": feature_cols,
-        }
-
-        bundle_path = os.path.join(OUT_DIR, f"model_bundle_{tag}.joblib")
-        joblib.dump(model_bundle, bundle_path)
-        print(f"[{tag}] Modelo y pipeline guardados en: {bundle_path}")
-
-        print(f"\n[{tag}] ROC-AUC={roc:.4f}  Recall={recall:.4f}  Precision={precision:.4f}  Recall@5%FPR={recall_5fpr:.4f}")
-        results[tag] = {
-            "n_features": len(selected), "roc_auc": roc, "recall": recall,
-            "precision": precision, "recall_at_5pct_fpr": recall_5fpr,
-        }
-
-    print("\n=== Resumen por variante ===")
-    for tag, r in results.items():
-        print(tag, "->", r)
+ # Para recuperar probabilidad ejecutar model.predict_proba(X_test).
+ # Esto retorna un array dimensiones Nx2, donde cada fila contiene una probabilidad y el valor predicho por el
+ # clasificador binario. Revisar Example_proba_run.py para referencia
